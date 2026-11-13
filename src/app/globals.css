@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* MODUS TRADE "signal" palette: white sheet, black type, red only on actions and alerts */
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f4f4f4;
+  --ink: #0a0a0a;
+  --muted: #6b6b6b;
+  --line: #e4e4e4;
+  --accent: #d92b21;
+  --accent-ink: #ffffff;
+  --accent-soft: #fbe6e4;
+  --sun: #b46a00;
+  --sun-soft: #fff1d6;
+  --danger: #d9480f;
+  --danger-soft: #ffe8dc;
+  --info: #1f6fd1;
+  --info-soft: #e3eefc;
+
+  --side: #000000;
+  --side-2: #1a1a1a;
+  --side-ink: #ffffff;
+  --side-muted: #9a9a9a;
+
+  --st-new: #64748d;
+  --st-review: #b46a00;
+  --st-accepted: #7c4ddb;
+  --st-in_progress: #1f6fd1;
+  --st-done: #12805c;
+  --st-rejected: #8f2d56;
+  --st-needs_info: #c2410c;
+  --st-closed: #4b5563;
+  --ok: #12805c;
+  --chart-1: #1f6fd1;
+  --chart-2: #b07a00;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --surface-2: #1e1e1e;
+  --ink: #f2f2f2;
+  --muted: #9a9a9a;
+  --line: #2a2a2a;
+  --accent: #e5392e;
+  --accent-ink: #ffffff;
+  --accent-soft: #3a1614;
+  --sun: #f2b640;
+  --sun-soft: #3a2c0b;
+  --danger: #ff8a4c;
+  --danger-soft: #3d200f;
+  --info: #5aa2f2;
+  --info-soft: #12294a;
+
+  --side: #000000;
+  --side-2: #1a1a1a;
+  --side-ink: #ffffff;
+  --side-muted: #8a8a8a;
+
+  --st-new: #94a3b8;
+  --st-review: #f2b640;
+  --st-accepted: #a98bff;
+  --st-in_progress: #5aa2f2;
+  --st-done: #3fd38a;
+  --st-rejected: #e47aa5;
+  --st-needs_info: #fb923c;
+  --st-closed: #9ca3af;
+  --ok: #3fd38a;
+  --chart-1: #3e8eea;
+  --chart-2: #b8861f;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-ok: var(--ok);
+  --color-sun: var(--sun);
+  --color-sun-soft: var(--sun-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-side: var(--side);
+  --color-side-2: var(--side-2);
+  --color-side-ink: var(--side-ink);
+  --color-side-muted: var(--side-muted);
+  --font-sans: var(--app-font);
+  --font-display: var(--app-display);
+}
+
+:root {
+  --app-font: var(--font-plex), ui-sans-serif, system-ui, sans-serif;
+  --app-display: var(--font-plex), ui-sans-serif, system-ui, sans-serif;
+  --app-display-tracking: -0.025em;
+  /* Signal design: crisp, nearly square corners */
+  --radius-lg: 3px;
+  --radius-xl: 4px;
+  --radius-2xl: 4px;
+  --radius-3xl: 6px;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--app-font);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.font-display {
+  font-family: var(--app-display);
+  letter-spacing: var(--app-display-tracking);
+}
+
+.elevated {
+  box-shadow: none;
+}
+
+.fade-up {
+  animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 99px;
+}
